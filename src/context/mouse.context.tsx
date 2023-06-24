@@ -1,36 +1,52 @@
-import { useState, createContext, ReactNode, CSSProperties } from 'react';
-import type { MousePosition, Props } from '../types';
+import { useState, createContext } from 'react';
+import { FollowerInitialiserComponent } from '..';
+import { Stack } from '../util/stack';
+
+import type { Props, MouseSettings } from '../types';
 
 interface ContextInterface {
   options: MouseSettings;
-  setOptions: (options: MouseSettings) => void;
   radius: number;
+  addLayer: (options: MouseSettings) => number;
+  removeLayer: (id: number) => void;
 }
 
-export interface MouseSettings {
-  zIndex?: CSSProperties['zIndex'];
-  backgroundColor?: CSSProperties['backgroundColor'];
-  backgroundElement?: JSX.Element;
-  scale?: number;
-  rotate?: number;
-  customPosition?: MousePosition;
-  mixBlendMode?: CSSProperties['mixBlendMode'];
-  invert?: boolean;
-}
+const defaultProperties = {
+  inverted: false,
+};
 
 export const MousePropertiesContext = createContext<ContextInterface>(null);
 
-export const MousePropertiesProvider = ({ children }: Props) => {
-  const radius = 12 / 2;
+export const FollowerProvider = ({ children }: Props) => {
+  const radius: number = 12 / 2;
+  const layerStack = new Stack();
+  const [options, setOptions] = useState<MouseSettings>(defaultProperties);
 
-  const [options, setOptions] = useState<MouseSettings>({
-    invert: false,
-  });
-
-  const value = {
-    options,
-    setOptions,
-    radius,
+  const addLayer = (layerOptions: MouseSettings): number => {
+    const properties = { ...options, ...layerOptions };
+    const id = layerStack.push(properties);
+    setOptions(properties);
+    return id;
   };
-  return <MousePropertiesContext.Provider value={value}>{children}</MousePropertiesContext.Provider>;
+
+  const removeLayer = (id: number) => {
+    const previousOptions = layerStack.pop(id);
+    if (previousOptions) {
+      setOptions(previousOptions);
+    }
+  };
+
+  const value: ContextInterface = {
+    options,
+    radius,
+    addLayer,
+    removeLayer,
+  };
+
+  return (
+    <MousePropertiesContext.Provider value={value}>
+      <FollowerInitialiserComponent options={options} radius={radius} />
+      {children}
+    </MousePropertiesContext.Provider>
+  );
 };
