@@ -17,5 +17,4 @@ export interface MouseSettings {
   rotate?: number;
   customPosition?: MousePosition;
   mixBlendMode?: React.CSSProperties['mixBlendMode'];
-  inverted?: boolean;
 }

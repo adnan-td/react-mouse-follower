@@ -12,8 +12,8 @@ const meta: Meta<typeof FollowerDiv> = {
     (Story) => (
       <div
         style={{
-          width: '90vw',
-          height: '90vh',
+          width: '100vw',
+          height: '100vh',
           overflow: 'hidden',
         }}
       >
@@ -21,23 +21,8 @@ const meta: Meta<typeof FollowerDiv> = {
       </div>
     ),
   ],
-  argTypes: {
-    options: {
-      control: {
-        type: 'object',
-      },
-    },
-    pos: {
-      control: {
-        type: 'object',
-      },
-    },
-    radius: {
-      control: {
-        type: 'number',
-        min: 0,
-      },
-    },
+  parameters: {
+    layout: 'fullscreen',
   },
 };
 
@@ -124,7 +109,7 @@ export const CustomElement: Story = {
 export const Inverted: Story = {
   args: {
     options: {
-      inverted: true,
+      backgroundColor: 'white',
     },
     pos: {
       x: 10,

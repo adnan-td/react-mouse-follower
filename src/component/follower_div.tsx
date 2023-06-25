@@ -21,7 +21,7 @@ export function FollowerDiv({ pos, options, radius }: { pos: MousePosition; opti
         scale: 0,
       }}
       style={{
-        backgroundColor: options.inverted ? 'white' : options.backgroundColor || 'black',
+        backgroundColor: options.backgroundColor || 'black',
         mixBlendMode: options.mixBlendMode || 'initial',
         zIndex: options.zIndex || -5,
         position: 'fixed',

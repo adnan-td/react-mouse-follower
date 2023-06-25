@@ -4,19 +4,6 @@ import type { Meta } from '@storybook/react';
 import { FollowerProvider, UpdateFollower } from '../index';
 import * as DivStories from './FollowerContainer.stories';
 
-const CustomPositionControl = ({ value, onChange }) => (
-  <div>
-    <label>
-      X:
-      <input type="number" value={value.x} onChange={(e) => onChange({ ...value, x: parseInt(e.target.value) })} />
-    </label>
-    <label>
-      Y:
-      <input type="number" value={value.y} onChange={(e) => onChange({ ...value, y: parseInt(e.target.value) })} />
-    </label>
-  </div>
-);
-
 const meta: Meta = {
   title: 'Context/FollowerProvider',
   component: FollowerProvider,
@@ -31,6 +18,9 @@ const meta: Meta = {
     backgroundColor: { control: 'color', defaultValue: 'black' },
     scale: { control: 'number', min: 0.1, max: 2, step: 0.1, defaultValue: 1 },
     inverted: { control: 'boolean', defaultValue: false },
+  },
+  parameters: {
+    layout: 'fullscreen',
   },
 };
 

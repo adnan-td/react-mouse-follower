@@ -14,13 +14,11 @@ export function UpdateFollower({
   children?: ReactNode;
 }) {
   const { addLayer, removeLayer } = useContext(MousePropertiesContext);
-  const [id, setId] = useState(1000);
   function handleMouseEnter() {
-    const id = addLayer(mouseOptions);
-    setId(id);
+    addLayer(mouseOptions);
   }
   function handleMouseLeave() {
-    removeLayer(id);
+    removeLayer();
   }
   return (
     <div style={style} className={className} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
