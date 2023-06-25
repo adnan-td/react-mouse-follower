@@ -1,17 +1,18 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const jsx_runtime_1 = require("react/jsx-runtime");
-function App({ bgColor }) {
-    return ((0, jsx_runtime_1.jsx)("div", { style: {
-            width: '100px',
-            height: '100px',
-            borderRadius: '1000px',
-            backgroundColor: bgColor ? bgColor : 'black',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-        }, children: (0, jsx_runtime_1.jsx)("p", { style: {
-                color: 'white',
-            }, children: "Hello" }) }));
-}
-exports.default = App;
+__exportStar(require("./component"), exports);
+__exportStar(require("./context"), exports);

@@ -8,10 +8,10 @@ export function UpdateFollower({
   className,
   children,
 }: {
-  mouseOptions: MouseSettings;
-  style: CSSProperties;
-  className: string;
-  children: ReactNode;
+  mouseOptions?: MouseSettings;
+  style?: CSSProperties;
+  className?: string;
+  children?: ReactNode;
 }) {
   const { addLayer, removeLayer } = useContext(MousePropertiesContext);
   const [id, setId] = useState(1000);

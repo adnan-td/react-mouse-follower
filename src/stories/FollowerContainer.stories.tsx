@@ -6,6 +6,7 @@ import mainVideo from './assets/main_bg.mp4';
 import { FollowerDiv } from '../index';
 
 const meta: Meta<typeof FollowerDiv> = {
+  title: 'Components/FollowerDiv',
   component: FollowerDiv,
   decorators: [
     (Story) => (
@@ -20,6 +21,24 @@ const meta: Meta<typeof FollowerDiv> = {
       </div>
     ),
   ],
+  argTypes: {
+    options: {
+      control: {
+        type: 'object',
+      },
+    },
+    pos: {
+      control: {
+        type: 'object',
+      },
+    },
+    radius: {
+      control: {
+        type: 'number',
+        min: 0,
+      },
+    },
+  },
 };
 
 export default meta;
