@@ -1,6 +1,6 @@
 {
   "name": "react-mouse-follower",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "React mouse follower is a package based on react and framer motion. It provides components to add and customise cool mouse follower to your cursor",
   "main": "dist/esm/index.js",
   "module": "dist/cjs/index.js",
@@ -11,6 +11,20 @@
     "dist"
   ],
   "private": false,
+  "keywords": [
+    "mouse",
+    "cursor",
+    "pointer",
+    "follower",
+    "react",
+    "reactjs",
+    "animation",
+    "framer-motion",
+    "ui",
+    "custom",
+    "effects",
+    "follow"
+  ],
   "scripts": {
     "build": "rm -rf dist/ && prettier --write src/ && yarn build:esm && yarn build:cjs",
     "build:esm": "tsc",
