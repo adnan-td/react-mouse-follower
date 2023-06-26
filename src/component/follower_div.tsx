@@ -1,4 +1,4 @@
-import { MousePosition, MouseSettings } from '../types';
+import { MousePosition, MouseSettings } from '../types/index.js';
 import { motion } from 'framer-motion';
 
 export function FollowerDiv({ pos, options, radius }: { pos: MousePosition; options: MouseSettings; radius?: number }) {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import type { MousePosition, MouseSettings } from '../types';
-import { FollowerDiv } from './follower_div';
+import type { MousePosition, MouseSettings } from '../types/index.js';
+import { FollowerDiv } from './follower_div.js';
 
 export function FollowerInitialiserComponent({ options, radius }: { options: MouseSettings; radius: number }) {
   const [isHovering, setIsHovering] = useState<boolean>(false);

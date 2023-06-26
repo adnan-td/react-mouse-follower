@@ -1,6 +1,6 @@
-import { CSSProperties, ReactNode, useContext, useState } from 'react';
-import { MousePropertiesContext } from '..';
-import { MouseSettings } from '../types';
+import { CSSProperties, ReactNode, useContext } from 'react';
+import { MousePropertiesContext } from '../context/mouse.context.js';
+import { MouseSettings } from '../types/index.js';
 
 export function UpdateFollower({
   mouseOptions,

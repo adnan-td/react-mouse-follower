@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 // @ts-ignore
 import mainVideo from './assets/main_bg.mp4';
 
-import { FollowerDiv } from '../index';
+import { FollowerDiv } from '../component/follower_div';
 
 const meta: Meta<typeof FollowerDiv> = {
   title: 'Components/FollowerDiv',

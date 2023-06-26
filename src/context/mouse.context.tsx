@@ -1,8 +1,8 @@
-import { useState, createContext, useEffect } from 'react';
-import { FollowerInitialiserComponent } from '..';
-import { useStack } from '../util/stack_hook';
+import { useState, createContext } from 'react';
+import { FollowerInitialiserComponent } from '../component/follower_init.js';
+import { useStack } from '../util/stack_hook.js';
 
-import type { Props, MouseSettings } from '../types';
+import type { Props, MouseSettings } from '../types/index.js';
 
 interface ContextInterface {
   options: MouseSettings;
@@ -21,7 +21,6 @@ export const FollowerProvider = ({ children }: Props) => {
   const [options, setOptions] = useState<MouseSettings>(defaultProperties);
 
   const addLayer = (layerOptions: MouseSettings) => {
-    // const properties = { ...layerOptions };
     const properties = { ...options, ...layerOptions };
     layerStack.push(properties);
     setOptions({ ...properties });
@@ -41,10 +40,6 @@ export const FollowerProvider = ({ children }: Props) => {
     addLayer,
     removeLayer,
   };
-
-  // useEffect(() => {
-  //   console.log(options);
-  // }, [options]);
 
   return (
     <MousePropertiesContext.Provider value={value}>

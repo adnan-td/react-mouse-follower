@@ -1,2 +1,2 @@
-export * from './component';
-export * from './context';
+export * from './component/index.js';
+export * from './context/index.js';

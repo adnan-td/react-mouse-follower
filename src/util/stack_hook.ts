@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import type { MouseSettings } from '../types';
+import { useState } from 'react';
+import type { MouseSettings } from '../types/index.js';
 
 export const useStack = (): {
   stack: MouseSettings[];

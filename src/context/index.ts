@@ -1,1 +1,3 @@
-export * from './mouse.context';
+import { FollowerProvider } from './mouse.context.js';
+
+export { FollowerProvider };
