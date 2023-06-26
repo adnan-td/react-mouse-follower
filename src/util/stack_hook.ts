@@ -11,7 +11,7 @@ export const useStack = (): {
   size: () => number;
   logStack: () => void;
 } => {
-  const [stack, setStack] = useState<MouseSettings[]>([]);
+  const [stack, setStack] = useState<MouseSettings[]>([{}]);
 
   const push = (options: MouseSettings): void => {
     const item: MouseSettings = {
@@ -38,7 +38,7 @@ export const useStack = (): {
   };
 
   const clear = (): void => {
-    setStack([]);
+    setStack([{}]);
   };
 
   const size = (): number => {
