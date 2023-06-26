@@ -2,7 +2,7 @@
 
 `React Mouse Follower` is a versatile package built on `React` and `Framer Motion`. This package offers a set of components that
 allow you to effortlessly integrate and personalize an impressive mouse follower to your cursor. With React Mouse Follower, you
-can easily enhance the user experience by adding **visually appealing** and **fully customizable** effects that follow the
+can easily enhance the user experience by adding ***visually appealing*** and ***fully customizable*** effects that follow the
 movement of the mouse.
 
 ## Demo
@@ -13,11 +13,15 @@ https://adnansh.in
 
 ## Installation
 
-Install through npm or yarn:
+Install using npm:
 
 ```
 npm install react-mouse-follower
+```
 
+Install through yarn:
+
+```
 yarn add react-mouse-follower
 ```
 
@@ -36,17 +40,11 @@ and many more.
 const mouseOptions = {
   zIndex: 2,
   backgroundColor: "blue",
-  backgroundElement?: (
-    <div>
-      <p>Sample Text<p>
-    </div>
-  ),
   scale: 5,
   rotate: 0,
   customPosition: null,
   mixBlendMode: "difference",
 }
-
 ```
 
 #### Stackable Effects
