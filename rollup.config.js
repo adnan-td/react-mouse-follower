@@ -1,7 +1,7 @@
 import babel from '@rollup/plugin-babel';
 import resolve from '@rollup/plugin-node-resolve';
 import external from 'rollup-plugin-peer-deps-external';
-import typescript from '@rollup/plugin-typescript';
+import dts from 'rollup-plugin-dts';
 
 export default [
   {
@@ -16,9 +16,15 @@ export default [
         format: 'es',
         exports: 'named',
       },
+      {
+        file: 'dist/index.d.ts',
+        format: 'es',
+      },
     ],
     plugins: [
-      typescript(),
+      dts({
+        tsconfig: './tsconfig.json',
+      }),
       resolve(),
       external(),
       babel({

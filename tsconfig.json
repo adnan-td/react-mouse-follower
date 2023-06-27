@@ -9,6 +9,7 @@
     "skipLibCheck": true,
     "jsx": "react-jsx",
     "declaration": true,
+    "declarationDir": "dist/types",
 
     /* Linting */
     "strict": true,
@@ -18,7 +19,7 @@
 
     "allowSyntheticDefaultImports": true,
     "rootDir": "src",
-    "outDir": "dist/esm",
+    "outDir": "dist",
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["node_modules", "src/stories"],

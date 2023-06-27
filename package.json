@@ -1,33 +1,20 @@
 {
   "name": "react-mouse-follower",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "React mouse follower is a package based on react and framer motion. It provides components to add and customise cool mouse follower to your cursor",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js",
   "repository": "https://github.com/Adnan-S-Husain/react-mouse-follower.git",
   "author": "Adnan Husain",
   "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
   "license": "MIT",
   "files": [
     "dist"
   ],
   "private": false,
-  "keywords": [
-    "mouse",
-    "cursor",
-    "pointer",
-    "follower",
-    "react",
-    "reactjs",
-    "animation",
-    "framer-motion",
-    "ui",
-    "custom",
-    "effects",
-    "follow"
-  ],
   "scripts": {
-    "build": "rollup -c",
+    "build": "rimraf dist && rollup -c",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -41,7 +28,6 @@
     "@babel/preset-react": "^7.22.5",
     "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-node-resolve": "^15.1.0",
-    "@rollup/plugin-typescript": "^11.1.1",
     "@storybook/addon-essentials": "7.0.23",
     "@storybook/addon-interactions": "7.0.23",
     "@storybook/addon-links": "7.0.23",
@@ -56,11 +42,27 @@
     "prop-types": "15.8.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "rimraf": "^5.0.1",
     "rollup": "^3.25.2",
+    "rollup-plugin-dts": "^5.3.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "storybook": "7.0.23",
     "typescript": "^5.0.2",
     "vite": "^4.3.9",
     "webpack": "^5.88.0"
-  }
+  },
+  "keywords": [
+    "mouse",
+    "cursor",
+    "pointer",
+    "follower",
+    "react",
+    "reactjs",
+    "animation",
+    "framer-motion",
+    "ui",
+    "custom",
+    "effects",
+    "follow"
+  ]
 }
