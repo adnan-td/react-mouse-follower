@@ -1,7 +1,8 @@
 import babel from '@rollup/plugin-babel';
 import resolve from '@rollup/plugin-node-resolve';
 import external from 'rollup-plugin-peer-deps-external';
-import dts from 'rollup-plugin-dts';
+import typescript from '@rollup/plugin-typescript';
+import terser from '@rollup/plugin-terser';
 
 export default [
   {
@@ -16,21 +17,16 @@ export default [
         format: 'es',
         exports: 'named',
       },
-      {
-        file: 'dist/index.d.ts',
-        format: 'es',
-      },
     ],
     plugins: [
-      dts({
-        tsconfig: './tsconfig.json',
-      }),
+      typescript(),
       resolve(),
       external(),
       babel({
         exclude: 'node_modules/**',
         presets: ['@babel/preset-react'],
       }),
+      terser(),
     ],
     external: ['react', 'react-dom'],
   },
