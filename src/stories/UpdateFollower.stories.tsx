@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import type { Meta } from '@storybook/react';
 
 import { FollowerProvider, UpdateFollower } from '../index';
+
+//@ts-ignore
+import barsIcon from './assets/bars_icon.svg';
 
 const meta: Meta = {
   title: 'Components/UpdateFollower',
@@ -52,5 +55,32 @@ export const NestedUpdateCalls: Meta = {
         </UpdateFollower>
       </FollowerProvider>
     ),
+  ],
+};
+
+export const CustomPosition: Meta = {
+  decorators: [
+    () => {
+      const containerRef = useRef(null);
+      return (
+        <FollowerProvider>
+          <div style={{ height: '100vh', width: '100vw', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <UpdateFollower
+              style={{ padding: '30px' }}
+              mouseOptions={{
+                customPosition: containerRef,
+                scale: 6,
+              }}
+            >
+              <div style={{ width: '30px', zIndex: 2, display: 'flex', flexDirection: 'column', gap: '10px' }} ref={containerRef}>
+                <div style={{ width: '100%', height: '3px', backgroundColor: 'black' }}></div>
+                <div style={{ width: '100%', height: '3px', backgroundColor: 'black' }}></div>
+                <div style={{ width: '100%', height: '3px', backgroundColor: 'black' }}></div>
+              </div>
+            </UpdateFollower>
+          </div>
+        </FollowerProvider>
+      );
+    },
   ],
 };

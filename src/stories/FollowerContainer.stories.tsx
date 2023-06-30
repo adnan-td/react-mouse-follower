@@ -53,12 +53,13 @@ export const Scale: Story = {
 
 export const Radius: Story = {
   args: {
-    options: {},
+    options: {
+      radius: 40,
+    },
     pos: {
       x: 20,
       y: 20,
     },
-    radius: 40,
   },
 };
 
@@ -77,7 +78,7 @@ export const DifferentColor: Story = {
 export const CustomPosition: Story = {
   args: {
     options: {
-      customPosition: {
+      customLocation: {
         x: 500,
         y: 200,
       },

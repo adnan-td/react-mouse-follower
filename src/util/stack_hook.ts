@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import type { MouseSettings } from '../types/index.js';
 
-export const useStack = (): {
+export const useStack = (
+  defaultMouseProperties: MouseSettings,
+): {
   stack: MouseSettings[];
   push: (options: MouseSettings) => void;
   pop: () => MouseSettings | undefined;
@@ -11,7 +13,7 @@ export const useStack = (): {
   size: () => number;
   logStack: () => void;
 } => {
-  const [stack, setStack] = useState<MouseSettings[]>([{}]);
+  const [stack, setStack] = useState<MouseSettings[]>([defaultMouseProperties]);
 
   const push = (options: MouseSettings): void => {
     const item: MouseSettings = {

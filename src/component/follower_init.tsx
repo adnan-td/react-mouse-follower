@@ -3,7 +3,7 @@ import { AnimatePresence } from 'framer-motion';
 import type { MousePosition, MouseSettings } from '../types/index.js';
 import { FollowerDiv } from './follower_div.js';
 
-export function FollowerInitialiserComponent({ options, radius }: { options: MouseSettings; radius: number }) {
+export function FollowerInitialiserComponent({ options }: { options: MouseSettings }) {
   const [isHovering, setIsHovering] = useState<boolean>(false);
   const [pos, setPos] = useState<MousePosition>({
     x: 0,
@@ -30,21 +30,17 @@ export function FollowerInitialiserComponent({ options, radius }: { options: Mou
   }, []);
 
   useEffect(() => {
-    function mouseMove(event: any) {
+    const mouseMove = (event: any) => {
       setPos({
-        x: event.clientX - radius,
-        y: event.clientY - radius,
+        x: event.clientX - options.radius,
+        y: event.clientY - options.radius,
       });
-    }
+    };
     window.addEventListener('mousemove', mouseMove);
     return () => {
       window.removeEventListener('mousemove', mouseMove);
     };
-  }, []);
+  }, [options.radius]);
 
-  return (
-    <AnimatePresence mode="wait">
-      {isHovering ? <FollowerDiv options={options} pos={pos} radius={radius} /> : null}
-    </AnimatePresence>
-  );
+  return <AnimatePresence mode="wait">{isHovering ? <FollowerDiv options={options} pos={pos} /> : null}</AnimatePresence>;
 }

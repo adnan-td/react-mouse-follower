@@ -43,6 +43,8 @@ export const Default: Meta = createStory(DivStories.Default.args?.options);
 
 export const Scale: Meta = createStory(DivStories.Scale.args?.options);
 
+export const Radius: Meta = createStory(DivStories.Radius.args?.options);
+
 export const DifferentColor: Meta = createStory(DivStories.DifferentColor.args?.options);
 
 export const CustomPosition: Meta = createStory(DivStories.CustomPosition.args?.options);

@@ -1,7 +1,19 @@
 import { MousePosition, MouseSettings } from '../types/index.js';
 import { motion } from 'framer-motion';
 
-export function FollowerDiv({ pos, options, radius }: { pos: MousePosition; options: MouseSettings; radius?: number }) {
+export function FollowerDiv({ pos, options }: { pos: MousePosition; options: MouseSettings }) {
+  const calculatePosition = (): MousePosition => {
+    if (options.customLocation != undefined) {
+      return { x: options.customLocation.x, y: options.customLocation.y };
+    } else if (options.customPosition != undefined) {
+      const rect = options.customPosition.current.getBoundingClientRect();
+      const x = rect.left + rect.width / 2 - options.radius;
+      const y = rect.top + rect.height / 2 - options.radius;
+      return { x, y };
+    } else {
+      return { x: pos.x, y: pos.y };
+    }
+  };
   return (
     <motion.div
       initial={{
@@ -10,8 +22,8 @@ export function FollowerDiv({ pos, options, radius }: { pos: MousePosition; opti
         scale: 0,
       }}
       animate={{
-        x: options.customPosition ? options.customPosition.x : pos.x,
-        y: options.customPosition ? options.customPosition.y : pos.y,
+        x: calculatePosition().x,
+        y: calculatePosition().y,
         scale: options.scale || 1,
         rotate: options.rotate || 0,
       }}
@@ -40,8 +52,8 @@ export function FollowerDiv({ pos, options, radius }: { pos: MousePosition; opti
     >
       <div
         style={{
-          width: `${radius ? radius * 2 : 12}px`,
-          height: `${radius ? radius * 2 : 12}px`,
+          width: `${options.radius ? options.radius * 2 : 12}px`,
+          height: `${options.radius ? options.radius * 2 : 12}px`,
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',

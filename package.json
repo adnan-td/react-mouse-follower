@@ -1,6 +1,6 @@
 {
   "name": "react-mouse-follower",
-  "version": "1.0.3",
+  "version": "1.0.6",
   "description": "React mouse follower is a package based on react and framer motion. It provides components to add and customise cool mouse follower to your cursor",
   "repository": "https://github.com/Adnan-S-Husain/react-mouse-follower.git",
   "author": "Adnan Husain",

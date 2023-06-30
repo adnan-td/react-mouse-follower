@@ -11,10 +11,16 @@ export interface MousePosition {
 
 export interface MouseSettings {
   zIndex?: React.CSSProperties['zIndex'];
-  backgroundColor?: React.CSSProperties['backgroundColor'];
-  backgroundElement?: JSX.Element;
   scale?: number;
   rotate?: number;
-  customPosition?: MousePosition;
+  radius?: number;
+  backgroundColor?: React.CSSProperties['backgroundColor'];
+  followSpeed?: number;
+  text?: string;
+  backgroundElement?: JSX.Element;
+  customPosition?: React.MutableRefObject<any>;
+  customLocation?: MousePosition;
   mixBlendMode?: React.CSSProperties['mixBlendMode'];
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
 }
