@@ -18,6 +18,9 @@
     "dist"
   ],
   "private": false,
+  "storybook": {
+    "url": "https://react-mouse-follower.chromatic.com"
+  },
   "scripts": {
     "build": "rimraf dist && rollup -c",
     "storybook": "storybook dev -p 6006",
