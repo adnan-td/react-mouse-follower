@@ -12,7 +12,6 @@ node_modules
 
 #directories
 .vscode
-.storybook
 
 dist
 storybook-static
