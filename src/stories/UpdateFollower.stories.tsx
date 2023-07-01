@@ -1,10 +1,9 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import type { Meta } from '@storybook/react';
 
 import { FollowerProvider, UpdateFollower } from '../index';
-
-//@ts-ignore
-import barsIcon from './assets/bars_icon.svg';
+import * as DivStories from './FollowerContainer.stories';
+import './css/update_follower.css';
 
 const meta: Meta = {
   title: 'Components/UpdateFollower',
@@ -62,6 +61,7 @@ export const CustomPosition: Meta = {
   decorators: [
     () => {
       const containerRef = useRef(null);
+      const [isHovering, setIsHovering] = useState(false);
       return (
         <FollowerProvider>
           <div style={{ height: '100vh', width: '100vw', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -71,14 +71,87 @@ export const CustomPosition: Meta = {
                 customPosition: containerRef,
                 scale: 6,
               }}
+              onMouseEnter={() => {
+                setIsHovering(true);
+              }}
+              onMouseLeave={() => {
+                setIsHovering(false);
+              }}
             >
-              <div style={{ width: '30px', zIndex: 2, display: 'flex', flexDirection: 'column', gap: '10px' }} ref={containerRef}>
-                <div style={{ width: '100%', height: '3px', backgroundColor: 'black' }}></div>
-                <div style={{ width: '100%', height: '3px', backgroundColor: 'black' }}></div>
-                <div style={{ width: '100%', height: '3px', backgroundColor: 'black' }}></div>
+              <div
+                style={{ width: '30px', zIndex: 2, display: 'flex', flexDirection: 'column', gap: '10px', cursor: 'pointer' }}
+                ref={containerRef}
+              >
+                <div className="hamburger-bar" style={{ backgroundColor: isHovering ? 'white' : 'black' }}></div>
+                <div className="hamburger-bar" style={{ backgroundColor: isHovering ? 'white' : 'black' }}></div>
+                <div className="hamburger-bar" style={{ backgroundColor: isHovering ? 'white' : 'black' }}></div>
               </div>
             </UpdateFollower>
           </div>
+        </FollowerProvider>
+      );
+    },
+  ],
+};
+
+export const Rotate: Meta = {
+  decorators: [
+    () => {
+      return (
+        <FollowerProvider>
+          <div style={{ height: '100vh', width: '100vw', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <UpdateFollower
+              style={{ padding: '30px' }}
+              mouseOptions={{
+                ...DivStories.CustomElement.args?.options,
+                rotate: 360,
+                zIndex: 2,
+                scale: 10,
+              }}
+            >
+              <div className="light-blue-box">
+                <UpdateFollower
+                  mouseOptions={{
+                    scale: 15,
+                    rotate: -360,
+                  }}
+                >
+                  <div className="light-green-box-sm"></div>
+                </UpdateFollower>
+              </div>
+            </UpdateFollower>
+          </div>
+        </FollowerProvider>
+      );
+    },
+  ],
+};
+
+export const FollowSpeed: Meta = {
+  decorators: [
+    () => {
+      return (
+        <FollowerProvider>
+          <UpdateFollower mouseOptions={{ zIndex: 2 }}>
+            <div style={{ height: '100vh', width: '100vw', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <UpdateFollower
+                style={{ padding: '30px' }}
+                mouseOptions={{
+                  followSpeed: 4,
+                }}
+              >
+                <div className="light-blue-box">
+                  <UpdateFollower
+                    mouseOptions={{
+                      followSpeed: 0.2,
+                    }}
+                  >
+                    <div className="light-green-box-sm"></div>
+                  </UpdateFollower>
+                </div>
+              </UpdateFollower>
+            </div>
+          </UpdateFollower>
         </FollowerProvider>
       );
     },

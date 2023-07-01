@@ -47,7 +47,7 @@ export function FollowerDiv({ pos, options }: { pos: MousePosition; options: Mou
         borderRadius: '9999px',
         overflow: 'hidden',
       }}
-      transition={{ type: 'tween', duration: 0.3, ease: 'circOut' }}
+      transition={{ type: 'tween', duration: options.followSpeed ? 0.3 / options.followSpeed : 0.3, ease: 'circOut' }}
       id="mouse-follower"
     >
       <div
@@ -71,6 +71,21 @@ export function FollowerDiv({ pos, options }: { pos: MousePosition; options: Mou
             overflow: 'hidden',
           }}
         >
+          {options.text ? (
+            <p
+              style={{
+                width: '80%',
+                textAlign: 'center',
+                lineHeight: options.textLineHeight,
+                letterSpacing: options.textLetterSpacing,
+                fontFamily: options.textFontFamily,
+                fontSize: options.textFontSize ? options.textFontSize : '12px',
+                color: options.textColor ? options.textColor : 'white',
+              }}
+            >
+              {options.text}
+            </p>
+          ) : null}
           {options.backgroundElement ? options.backgroundElement : null}
         </div>
       </div>

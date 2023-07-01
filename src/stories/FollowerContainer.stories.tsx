@@ -127,3 +127,19 @@ export const Inverted: Story = {
     },
   },
 };
+
+export const Text: Story = {
+  args: {
+    options: {
+      radius: 60,
+      text: 'View Case',
+      zIndex: 2,
+      textFontSize: '25px',
+      textFontFamily: 'sans-serif',
+    },
+    pos: {
+      x: 20,
+      y: 20,
+    },
+  },
+};

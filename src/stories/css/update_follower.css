@@ -1,0 +1,25 @@
+.hamburger-bar {
+  width: 100%;
+  height: 3px;
+  transition: all 0.4 ease-out;
+}
+
+.light-blue-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 400px;
+  background-color: lightblue;
+  border-radius: 10px;
+}
+
+.light-green-box-sm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  background-color: lightgreen;
+  border-radius: 10px;
+}

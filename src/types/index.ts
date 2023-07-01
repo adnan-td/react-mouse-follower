@@ -17,10 +17,13 @@ export interface MouseSettings {
   backgroundColor?: React.CSSProperties['backgroundColor'];
   followSpeed?: number;
   text?: string;
+  textFontSize?: React.CSSProperties['fontSize'];
+  textColor?: React.CSSProperties['color'];
+  textLineHeight?: React.CSSProperties['lineHeight'];
+  textLetterSpacing?: React.CSSProperties['letterSpacing'];
+  textFontFamily?: React.CSSProperties['fontFamily'];
   backgroundElement?: JSX.Element;
   customPosition?: React.MutableRefObject<any>;
   customLocation?: MousePosition;
   mixBlendMode?: React.CSSProperties['mixBlendMode'];
-  onMouseEnter?: () => void;
-  onMouseLeave?: () => void;
 }
