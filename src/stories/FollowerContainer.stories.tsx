@@ -5,6 +5,8 @@ import mainVideo from './assets/main_bg.mp4';
 
 import { FollowerDiv } from '../component/follower_div';
 
+import './css/update_follower.css';
+
 const meta: Meta<typeof FollowerDiv> = {
   title: 'Components/FollowerDiv',
   component: FollowerDiv,
@@ -95,8 +97,8 @@ export const CustomElement: Story = {
     options: {
       scale: 20,
       backgroundElement: (
-        <div>
-          <video playsInline={true} autoPlay={true} muted={true} loop={true} src={mainVideo} width={'100%'} />
+        <div className="video_container">
+          <video playsInline={true} autoPlay={true} muted={true} loop={true} src={mainVideo} />
         </div>
       ),
     },

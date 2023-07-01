@@ -1,9 +1,14 @@
 {
   "name": "react-mouse-follower",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "React mouse follower is a package based on react and framer motion. It provides components to add and customise cool mouse follower to your cursor",
-  "repository": "https://github.com/Adnan-S-Husain/react-mouse-follower.git",
-  "author": "Adnan Husain",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Adnan-S-Husain/react-mouse-follower.git"
+  },
+  "author": {
+    "name": "Adnan Husain"
+  },
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -16,7 +21,8 @@
   "scripts": {
     "build": "rimraf dist && rollup -c",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "chromatic": "chromatic --exit-zero-on-changes"
   },
   "peerDependencies": {
     "framer-motion": "^10.12.17",
@@ -40,6 +46,7 @@
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
     "babel-loader": "^9.1.2",
+    "chromatic": "^6.19.9",
     "framer-motion": "^10.12.17",
     "prop-types": "15.8.1",
     "react": "18.2.0",
@@ -65,5 +72,11 @@
     "custom",
     "effects",
     "follow"
-  ]
+  ],
+  "bugs": {
+    "url": "https://github.com/Adnan-S-Husain/react-mouse-follower/issues"
+  },
+  "readme": "ERROR: No README data found!",
+  "homepage": "https://github.com/Adnan-S-Husain/react-mouse-follower#readme",
+  "_id": "react-mouse-follower@1.0.6"
 }

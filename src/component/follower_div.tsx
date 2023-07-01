@@ -74,7 +74,7 @@ export function FollowerDiv({ pos, options }: { pos: MousePosition; options: Mou
           {options.text ? (
             <p
               style={{
-                width: '80%',
+                width: '85%',
                 textAlign: 'center',
                 lineHeight: options.textLineHeight,
                 letterSpacing: options.textLetterSpacing,
