@@ -2,7 +2,6 @@ import babel from '@rollup/plugin-babel';
 import resolve from '@rollup/plugin-node-resolve';
 import external from 'rollup-plugin-peer-deps-external';
 import typescript from '@rollup/plugin-typescript';
-import terser from '@rollup/plugin-terser';
 
 export default [
   {
@@ -21,12 +20,13 @@ export default [
     plugins: [
       typescript(),
       resolve(),
-      external(),
+      external({
+        includeDependencies: true,
+      }),
       babel({
         exclude: 'node_modules/**',
         presets: ['@babel/preset-react'],
       }),
-      terser(),
     ],
     external: ['react', 'react-dom'],
   },
