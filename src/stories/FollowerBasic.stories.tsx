@@ -17,7 +17,11 @@ const meta: Meta = {
   argTypes: {
     backgroundColor: { control: 'color', defaultValue: 'black' },
     scale: { control: 'number', min: 0.1, max: 2, step: 0.1, defaultValue: 1 },
-    inverted: { control: 'boolean', defaultValue: false },
+    radius: { control: 'number', min: 12, max: 200, step: 1, defaultValue: 12 },
+    speed: { control: 'number', min: 0, max: 10, step: 0.1, defaultValue: 1 },
+    text: { control: 'text', defaultValue: '' },
+    textColor: { control: 'color', defaultValue: 'white' },
+    textFontSize: { control: 'text', defaultValue: '12px' },
   },
   parameters: {
     layout: 'fullscreen',

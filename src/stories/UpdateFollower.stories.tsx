@@ -7,7 +7,7 @@ import './css/update_follower.css';
 
 const meta: Meta = {
   title: 'Components/UpdateFollower',
-  component: UpdateFollower,
+  component: undefined,
   parameters: {
     layout: 'fullscreen',
   },

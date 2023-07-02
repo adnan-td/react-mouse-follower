@@ -24,8 +24,10 @@
     "build-storybook": "storybook build",
     "chromatic": "chromatic --exit-zero-on-changes"
   },
+  "dependencies": {
+    "framer-motion": "^10.12.18"
+  },
   "peerDependencies": {
-    "framer-motion": "^10.12.17",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -47,7 +49,6 @@
     "@types/react-dom": "^18.0.11",
     "babel-loader": "^9.1.2",
     "chromatic": "^6.19.9",
-    "framer-motion": "^10.12.17",
     "prop-types": "15.8.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -76,7 +77,6 @@
   "bugs": {
     "url": "https://github.com/Adnan-S-Husain/react-mouse-follower/issues"
   },
-  "readme": "ERROR: No README data found!",
-  "homepage": "https://github.com/Adnan-S-Husain/react-mouse-follower#readme",
-  "_id": "react-mouse-follower@1.0.6"
+  "readme": "README.md",
+  "homepage": "https://github.com/Adnan-S-Husain/react-mouse-follower#readme"
 }

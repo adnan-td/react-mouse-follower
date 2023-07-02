@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import type { MouseSettings } from '../types/index.js';
 
 export const useStack = (
@@ -16,10 +16,13 @@ export const useStack = (
   const [stack, setStack] = useState<MouseSettings[]>([defaultMouseProperties]);
 
   const push = (options: MouseSettings): void => {
-    const item: MouseSettings = {
-      ...options,
-    };
-    setStack((prevStack) => [...prevStack, item]);
+    setStack((prevStack) => {
+      const item: MouseSettings = {
+        ...prevStack[prevStack.length - 1],
+        ...options,
+      };
+      return [...prevStack, item];
+    });
   };
 
   const pop = (): MouseSettings | undefined => {
@@ -48,8 +51,15 @@ export const useStack = (
   };
 
   const logStack = (): void => {
-    console.log(stack);
+    console.log('logging stack');
+    stack.forEach((item, i) => {
+      console.log(i, item);
+    });
   };
+
+  useEffect(() => {
+    logStack();
+  }, [stack]);
 
   return {
     stack,

@@ -18,8 +18,7 @@ export const MousePropertiesContext = createContext<ContextInterface>(null);
 export const FollowerProvider = ({ children }: Props) => {
   const layerStack = useStack(defaultMouseProperties);
   const addLayer = (layerOptions: MouseSettings) => {
-    const properties = { ...layerStack.peek(), ...layerOptions };
-    layerStack.push(properties);
+    layerStack.push(layerOptions);
   };
 
   const removeLayer = () => {

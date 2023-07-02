@@ -71,7 +71,7 @@ export function FollowerDiv({ pos, options }: { pos: MousePosition; options: Mou
             overflow: 'hidden',
           }}
         >
-          {options.text ? (
+          {options.text && !options.backgroundElement ? (
             <p
               style={{
                 width: '85%',
