@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import type { MouseSettings } from '../types/index.js';
 
-export const useStack = (
-  defaultMouseProperties: MouseSettings,
-): {
+const defaultMouseProperties: MouseSettings = {
+  radius: 12 / 2,
+};
+
+export const useStack = (): {
   stack: MouseSettings[];
   push: (options: MouseSettings) => void;
   pop: () => MouseSettings | undefined;
@@ -18,6 +20,7 @@ export const useStack = (
   const push = (options: MouseSettings): void => {
     setStack((prevStack) => {
       const item: MouseSettings = {
+        ...defaultMouseProperties,
         ...prevStack[prevStack.length - 1],
         ...options,
       };
@@ -38,7 +41,7 @@ export const useStack = (
     if (stack.length > 0) {
       return stack[stack.length - 1];
     }
-    return undefined;
+    return defaultMouseProperties;
   };
 
   const isEmpty = (): boolean => {

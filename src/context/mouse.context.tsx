@@ -9,14 +9,10 @@ interface ContextInterface {
   removeLayer: () => void;
 }
 
-const defaultMouseProperties: MouseSettings = {
-  radius: 12 / 2,
-};
-
 export const MousePropertiesContext = createContext<ContextInterface>(null);
 
 export const FollowerProvider = ({ children }: Props) => {
-  const layerStack = useStack(defaultMouseProperties);
+  const layerStack = useStack();
   const addLayer = (layerOptions: MouseSettings) => {
     layerStack.push(layerOptions);
   };
