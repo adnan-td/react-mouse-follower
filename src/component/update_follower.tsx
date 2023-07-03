@@ -8,6 +8,7 @@ export function UpdateFollower({
   className,
   onMouseEnter,
   onMouseLeave,
+  onClick,
   children,
 }: {
   mouseOptions?: MouseSettings;
@@ -15,6 +16,7 @@ export function UpdateFollower({
   className?: string;
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
+  onClick?: () => void;
   children?: ReactNode;
 }) {
   const { addLayer, removeLayer } = useContext(MousePropertiesContext);
@@ -31,7 +33,7 @@ export function UpdateFollower({
     }
   }
   return (
-    <div style={style} className={className} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <div style={style} className={className} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={onClick}>
       {children}
     </div>
   );

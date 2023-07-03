@@ -2,7 +2,7 @@
 
 `React Mouse Follower` is a versatile package built on `React` and `Framer Motion`. This package offers a set of components that
 allow you to effortlessly integrate and personalize an impressive mouse follower to your cursor. With React Mouse Follower, you
-can easily enhance the user experience by adding ***visually appealing*** and ***fully customizable*** effects that follow the
+can easily enhance the user experience by adding **_visually appealing_** and **_fully customizable_** effects that follow the
 movement of the mouse.
 
 ## Installation
@@ -25,7 +25,6 @@ ReactJS (https://reactjs.org/)
 
 Framer Motion (https://github.com/framer/motion)
 
-
 ## Features
 
 #### Simple Syntax
@@ -42,23 +41,21 @@ You can customise your mouse follower by changing - background color, scale, rad
 
 ## Usage
 
-**FollowerProvider** - Creates and attaches the mouse follower to your mouse. Wrap your components with it once to initialise the follower.
+**FollowerProvider** - Creates and attaches the mouse follower to your mouse. Wrap your components with it once to initialise the
+follower.
 
 ```jsx
 import { FollowerProvider } from 'react-mouse-follower';
 
 function App() {
-  return (
-    <FollowerProvider>
-      {/* rest of your components go here */} 
-    </FollowerProvider>
-  );
+  return <FollowerProvider>{/* rest of your components go here */}</FollowerProvider>;
 }
 
 export default App;
 ```
 
-**UpdateFollower** - Updates the mouse follower settings when mouse enters the child components wrapped inside it. It can be nested to produce cool effects.
+**UpdateFollower** - Updates the mouse follower settings when mouse enters the child components wrapped inside it. It can be
+nested to produce cool effects.
 
 ```jsx
 import './Component.css';
@@ -71,7 +68,7 @@ function Component() {
       mouseOptions={{
         backgroundColor: 'white',
         zIndex: 2,
-        followSpeed: 1.5
+        followSpeed: 1.5,
       }}
     >
       <h1>Sample header</h1>
@@ -84,64 +81,72 @@ export default Component;
 
 It takes the following arguments:
 
-| Name | Type | Description |
-|------|------|-------------|
-| className | string \| null | CSS class name to apply on the div |
-| style | object \| null | CSS styles for the div |
-| onMouseEnter | function \| null | Callback function to execute on mouse entering the div |
-| onMouseLeave | function \| null | Callback function to execute on mouse leaving the div |
-| mouseOptions | object | Takes parameters to apply on the mouse follower when the mouse enters the div |
+| Name         | Type           | Description                                                                   |
+| ------------ | -------------- | ----------------------------------------------------------------------------- |
+| className    | string \| null | CSS class name to apply on the div                                            |
+| style        | object \| null | CSS styles for the div                                                        |
+| onClick      | function       | Callback function to execute on click                                         |
+| onMouseEnter | function       | Callback function to execute on mouse entering the div                        |
+| onMouseLeave | function       | Callback function to execute on mouse leaving the div                         |
+| mouseOptions | object         | Takes parameters to apply on the mouse follower when the mouse enters the div |
+
+<br>
 
 Mouse Options example with background element:
+
 ```jsx
 const mouseOptions = {
   zIndex: 2,
-  backgroundColor: "blue",
+  backgroundColor: 'blue',
   scale: 5,
-  mixBlendMode: "difference",
+  mixBlendMode: 'difference',
   backgroundElement: (
-    <div style={{width: "100%"}}>
+    <div style={{ width: '100%' }}>
       <img src="..." alt="..." />
     </div>
-  )
-}
+  ),
+};
 ```
 
 Mouse Options example with Text:
+
 ```jsx
 const mouseOptions = {
   zIndex: 2,
-  backgroundColor: "black",
+  backgroundColor: 'black',
   radius: 60,
-  text: "Sample Text",
-  textColor: "white",
-  textFontFamily: "sans-serif",
-  textFontSize: "25px",
-}
+  text: 'Sample Text',
+  textColor: 'white',
+  textFontFamily: 'sans-serif',
+  textFontSize: '25px',
+};
 ```
 
 All Mouse Options:
 
-| Name | Type | Description |
-|------|------|-------------|
-| zIndex | integer | Applies z-index to follower. Default value - 0 |
-| scale | number | Changes the scale of follower. Default value - 1 |
-| radius | number | Sets the radius in pixels of the follower circle. Default value - 12 |
-| rotate | number(in degree) | Rotates the follower. Default value - 0 |
-| backgroundColor | string | Sets the background color of the follower. Default value - "black" |
-| followSpeed | number | Changes the speed of following animation. Default value - 1 |
-| backgroundElement | JSX.Element | Takes a react component and renders it in the follower circle center |
-| customPosition | RefObject | Takes in a ref (from useRef react hook) and places the follower to center of the referenced div when the mouse enters |
-| customLocation | object | Takes x and y co-ordinates and places the follower there |
-| mixBlendMode | string | Applies mixBlendMode css property to follower div |
-| text | string | Adds text to the center of the follower |
-| textFontSize | string | Font size for the text property |
-| textColor | string | Color for the text property. Default value - white |
-| textFontFamily | string | Font family for the text property |
-| textLineHeight | string | Line height for the text property |
-| textLetterSpacing | string | Letter spacing for the text property |
+| Name              | Type              | Description                                                                                                           |
+| ----------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------- |
+| zIndex            | integer           | Applies z-index to follower. Default value - 0                                                                        |
+| scale             | number            | Changes the scale of follower. Default value - 1                                                                      |
+| radius            | number            | Sets the radius in pixels of the follower circle. Default value - 12                                                  |
+| rotate            | number(in degree) | Rotates the follower. Default value - 0                                                                               |
+| backgroundColor   | string            | Sets the background color of the follower. Default value - "black"                                                    |
+| followSpeed       | number            | Changes the speed of following animation. Default value - 1                                                           |
+| backgroundElement | JSX.Element       | Takes a react component and renders it in the follower circle center                                                  |
+| customPosition    | RefObject         | Takes in a ref (from useRef react hook) and places the follower to center of the referenced div when the mouse enters |
+| customLocation    | object            | Takes x and y co-ordinates and places the follower there                                                              |
+| mixBlendMode      | string            | Applies mixBlendMode css property to follower div                                                                     |
+| text              | string            | Adds text to the center of the follower                                                                               |
+| textFontSize      | string            | Font size for the text property                                                                                       |
+| textColor         | string            | Color for the text property. Default value - white                                                                    |
+| textFontFamily    | string            | Font family for the text property                                                                                     |
+| textLineHeight    | string            | Line height for the text property                                                                                     |
+| textLetterSpacing | string            | Letter spacing for the text property                                                                                  |
+
+<br>
 
 Nested UpdateFollower with custom position sample:
+
 ```jsx
 export default function HamburgerIcon() {
   const containerRef = useRef(null);
