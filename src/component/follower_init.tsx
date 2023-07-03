@@ -40,7 +40,7 @@ export function FollowerInitialiserComponent({ options }: { options: MouseSettin
     return () => {
       window.removeEventListener('mousemove', mouseMove);
     };
-  }, [options.radius]);
+  }, [options?.radius]);
 
   return <AnimatePresence mode="wait">{isHovering ? <FollowerDiv options={options} pos={pos} /> : null}</AnimatePresence>;
 }

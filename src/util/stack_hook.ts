@@ -26,8 +26,11 @@ export const useStack = (
   };
 
   const pop = (): MouseSettings | undefined => {
-    const item = stack.pop();
-    setStack([...stack]);
+    let item = {};
+    setStack((prevStack) => {
+      item = prevStack.pop();
+      return [...prevStack];
+    });
     return item;
   };
 

@@ -3,20 +3,16 @@
     "target": "es6",
     "useDefineForClassFields": true,
     "lib": ["es5", "es2015", "es2016", "dom", "esnext", "es2020"],
-    "module": "ES2015",
+    "module": "ESNext",
     "moduleResolution": "nodenext",
     "noImplicitAny": true,
     "skipLibCheck": true,
     "jsx": "react-jsx",
     "declaration": true,
-    "declarationDir": "dist/types",
-
-    /* Linting */
     "strict": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "strictNullChecks": false,
-
     "allowSyntheticDefaultImports": true,
     "rootDir": "src",
     "outDir": "dist",
