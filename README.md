@@ -146,7 +146,7 @@ All Mouse Options:
 
 <br>
 
-**useControlOptions** provides more functionality to utilise the mouse follower capabilities.
+**useControlOptions** - provides more functionality to utilise the mouse follower capabilities.
 
 ```jsx
 import { useControlOptions } from 'react-mouse-follower';
