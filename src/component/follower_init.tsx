@@ -42,5 +42,9 @@ export function FollowerInitialiserComponent({ options }: { options: MouseSettin
     };
   }, [options?.radius]);
 
-  return <AnimatePresence mode="wait">{isHovering ? <FollowerDiv options={options} pos={pos} /> : null}</AnimatePresence>;
+  return (
+    <AnimatePresence mode="wait">
+      {isHovering && options.visible !== false ? <FollowerDiv options={options} pos={pos} /> : null}
+    </AnimatePresence>
+  );
 }

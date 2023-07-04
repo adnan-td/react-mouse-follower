@@ -49,7 +49,7 @@ export const useStack = (): {
   };
 
   const clear = (): void => {
-    setStack([{}]);
+    setStack([]);
   };
 
   const size = (): number => {
@@ -57,15 +57,15 @@ export const useStack = (): {
   };
 
   const logStack = (): void => {
-    console.log('logging stack');
+    console.log('logging all layers');
     stack.forEach((item, i) => {
       console.log(i, item);
     });
   };
 
-  useEffect(() => {
-    logStack();
-  }, [stack]);
+  // useEffect(() => {
+  //   logStack();
+  // }, [stack]);
 
   return {
     stack,

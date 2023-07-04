@@ -1,34 +1,40 @@
-import { createContext, useRef } from 'react';
+import { ReactNode, createContext, useRef } from 'react';
 import { FollowerInitialiserComponent } from '../component/follower_init.js';
-import { useStack } from '../util/stack_hook.js';
+import { useStack } from '../hook/stack.hook.js';
 
-import type { Props, MouseSettings } from '../types/index.js';
+import type { MouseSettings } from '../types/index.js';
 
 interface ContextInterface {
   addLayer: (options: MouseSettings) => void;
-  removeLayer: () => void;
+  removeLayer: () => MouseSettings | undefined;
+  peekStack: () => MouseSettings | undefined;
+  clearStack: () => void;
+  logStack: () => void;
 }
 
 export const MousePropertiesContext = createContext<ContextInterface>(null);
 
-export const FollowerProvider = ({ children }: Props) => {
+export const FollowerProvider = ({ visible, children }: { visible?: boolean; children?: ReactNode }) => {
   const layerStack = useStack();
   const addLayer = (layerOptions: MouseSettings) => {
     layerStack.push(layerOptions);
   };
 
   const removeLayer = () => {
-    layerStack.pop();
+    return layerStack.pop();
   };
 
   const value: ContextInterface = {
     addLayer,
     removeLayer,
+    clearStack: layerStack.clear,
+    logStack: layerStack.logStack,
+    peekStack: layerStack.peek,
   };
 
   return (
     <MousePropertiesContext.Provider value={value}>
-      <FollowerInitialiserComponent options={layerStack.peek()} />
+      {visible !== false ? <FollowerInitialiserComponent options={layerStack.peek()} /> : null}
       {children}
     </MousePropertiesContext.Provider>
   );

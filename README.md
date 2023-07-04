@@ -132,6 +132,7 @@ All Mouse Options:
 | rotate            | number(in degree) | Rotates the follower. Default value - 0                                                                               |
 | backgroundColor   | string            | Sets the background color of the follower. Default value - "black"                                                    |
 | followSpeed       | number            | Changes the speed of following animation. Default value - 1                                                           |
+| visible           | boolean           | Sets the visibility of the follower                                                                                   |
 | backgroundElement | JSX.Element       | Takes a react component and renders it in the follower circle center                                                  |
 | customPosition    | RefObject         | Takes in a ref (from useRef react hook) and places the follower to center of the referenced div when the mouse enters |
 | customLocation    | object            | Takes x and y co-ordinates and places the follower there                                                              |
@@ -142,6 +143,38 @@ All Mouse Options:
 | textFontFamily    | string            | Font family for the text property                                                                                     |
 | textLineHeight    | string            | Line height for the text property                                                                                     |
 | textLetterSpacing | string            | Letter spacing for the text property                                                                                  |
+
+<br>
+
+**useControlOptions** provides more functionality to utilise the mouse follower capabilities.
+
+```jsx
+import { useControlOptions } from 'react-mouse-follower';
+
+export default function MyComponent() {
+  const { removePreviousLayer, topLayer } = useControlOptions();
+  useEffect(() => {
+    console.log(removePreviousLayer());
+    console.log(topLayer);
+  }, []);
+  return (
+    <div>
+      <h1>Text</h1>
+      {/* Rest of your component */}
+    </div>
+  );
+}
+```
+
+All functions provided:
+
+| Name                | Description                                 |
+| ------------------- | ------------------------------------------- |
+| addOptionLayer      | pushes new options layer on the top         |
+| removePreviousLayer | removes top most layer                      |
+| clearLayers         | clears all previous layers                  |
+| logLayers           | logs all layers in the stack on the console |
+| topLayer            | returns the top most layer                  |
 
 <br>
 

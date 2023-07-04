@@ -11,6 +11,7 @@ export interface MousePosition {
 
 export interface MouseSettings {
   zIndex?: React.CSSProperties['zIndex'];
+  visible?: boolean;
   scale?: number;
   rotate?: number;
   radius?: number;
