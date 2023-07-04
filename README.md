@@ -155,7 +155,7 @@ export default function MyComponent() {
   const { removePreviousLayer, topLayer } = useControlOptions();
   useEffect(() => {
     console.log(removePreviousLayer());
-    console.log(topLayer);
+    console.log(topLayer();
   }, []);
   return (
     <div>
