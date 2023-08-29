@@ -5,10 +5,6 @@ import { FollowerDiv } from './follower_div.js';
 
 export function FollowerInitialiserComponent({ options }: { options: MouseSettings }) {
   const [isHovering, setIsHovering] = useState<boolean>(false);
-  const [pos, setPos] = useState<MousePosition>({
-    x: 0,
-    y: 0,
-  });
 
   useEffect(() => {
     const handleMouseLeave = () => {
@@ -29,6 +25,14 @@ export function FollowerInitialiserComponent({ options }: { options: MouseSettin
     };
   }, []);
 
+  return <PositionHandler options={options} show={isHovering && options.visible !== false} />;
+}
+
+function PositionHandler({ options, show }: { options: MouseSettings; show: boolean }) {
+  const [pos, setPos] = useState<MousePosition>({
+    x: 0,
+    y: 0,
+  });
   useEffect(() => {
     const mouseMove = (event: any) => {
       setPos({
@@ -42,9 +46,5 @@ export function FollowerInitialiserComponent({ options }: { options: MouseSettin
     };
   }, [options?.radius]);
 
-  return (
-    <AnimatePresence mode="wait">
-      {isHovering && options.visible !== false ? <FollowerDiv options={options} pos={pos} /> : null}
-    </AnimatePresence>
-  );
+  return <AnimatePresence mode="wait">{show ? <FollowerDiv options={options} pos={pos} /> : null}</AnimatePresence>;
 }
