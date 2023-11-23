@@ -8,9 +8,7 @@ const defaultRadius = 12 / 2;
 
 export function FollowerInitialiserComponent() {
   const [isHovering, setIsHovering] = useState<boolean>(false);
-
   const options = useMouseStore((store) => store.curSettings);
-  // console.log(options);
 
   useEffect(() => {
     const handleMouseLeave = () => {
@@ -37,6 +35,7 @@ export function FollowerInitialiserComponent() {
 }
 
 function ManagePosition({ options }: { options: MouseSettings }) {
+
   const [pos, setPos] = useState<MousePosition>({
     x: 0,
     y: 0,
