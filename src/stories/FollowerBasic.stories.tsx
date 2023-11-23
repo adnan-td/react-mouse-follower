@@ -1,16 +1,16 @@
 import React from 'react';
 import type { Meta } from '@storybook/react';
 
-import { Follower, UpdateFollower } from '../index';
+import { MouseFollower, UpdateFollower } from '../index';
 import * as DivStories from './FollowerContainer.stories';
 
 const meta: Meta = {
   title: 'Context/FollowerProvider',
-  component: Follower,
+  component: MouseFollower,
   decorators: [
     (Story) => (
       <>
-        <Follower />
+        <MouseFollower />
         <Story />
       </>
     ),

@@ -1,7 +1,7 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import type { Meta } from '@storybook/react';
 
-import { Follower, UpdateFollower } from '../index';
+import { MouseFollower, UpdateFollower, useControlOptions } from '../index';
 import * as DivStories from './FollowerContainer.stories';
 import './css/update_follower.css';
 
@@ -14,7 +14,7 @@ const meta: Meta = {
   decorators: [
     (Story) => (
       <>
-        <Follower />
+        <MouseFollower />
         <Story />
       </>
     ),
@@ -68,8 +68,21 @@ export const CustomPosition: Meta = {
     () => {
       const containerRef = useRef(null);
       const [isHovering, setIsHovering] = useState(false);
+      const { log } = useControlOptions();
+      useEffect(() => {
+        log();
+      }, []);
       return (
-        <div style={{ height: '100vh', width: '100vw', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <div
+          style={{
+            height: '100vh',
+            width: '100vw',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            cursor: 'pointer',
+          }}
+        >
           <UpdateFollower
             style={{ padding: '30px' }}
             mouseOptions={{

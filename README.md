@@ -45,10 +45,15 @@ You can customise your mouse follower by changing - background color, scale, rad
 follower.
 
 ```jsx
-import { FollowerProvider } from 'react-mouse-follower';
+import { MouseFollower } from 'react-mouse-follower';
 
 function App() {
-  return <FollowerProvider>{/* rest of your components go here */}</FollowerProvider>;
+  return (
+    <div>
+      <MouseFollower />
+      // rest of the code
+    </div>
+  );
 }
 
 export default App;
@@ -168,13 +173,13 @@ export default function MyComponent() {
 
 All functions provided:
 
-| Name                | Description                                 |
-| ------------------- | ------------------------------------------- |
-| addOptionLayer      | pushes new options layer on the top         |
-| removePreviousLayer | removes top most layer                      |
-| clearLayers         | clears all previous layers                  |
-| logLayers           | logs all layers in the stack on the console |
-| topLayer            | returns the top most layer                  |
+| Name                | Description                         |
+| ------------------- | ----------------------------------- |
+| addOptionLayer      | pushes new options layer on the top |
+| removePreviousLayer | removes top most layer              |
+| clearLayers         | clears all previous layers          |
+| log                 | logs all events on the console      |
+| topLayer            | returns the top most layer          |
 
 <br>
 

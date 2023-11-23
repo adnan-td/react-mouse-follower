@@ -1,5 +1,5 @@
 import { FollowerInitialiserComponent } from './follower_init.js';
 
-export function Follower() {
+export function MouseFollower() {
   return <FollowerInitialiserComponent />;
 }
