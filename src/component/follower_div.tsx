@@ -71,28 +71,35 @@ export function FollowerDiv({ pos, options }: { pos: MousePosition; options: Mou
           }}
         >
           {options.text && !options.backgroundElement ? (
-            <AnimatePresence mode="wait">
-              <motion.p
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0.3 }}
-                transition={{ type: 'tween', duration: options.followSpeed ? 0.3 / options.followSpeed : 0.3, ease: 'circOut' }}
-                style={{
-                  width: '85%',
-                  textAlign: 'center',
-                  lineHeight: options.textLineHeight,
-                  letterSpacing: options.textLetterSpacing,
-                  fontFamily: options.textFontFamily,
-                  fontSize: options.textFontSize ? options.textFontSize : '12px',
-                  color: options.textColor ? options.textColor : 'white',
-                }}
-              >
-                {options.text}
-              </motion.p>
-            </AnimatePresence>
+            <motion.p
+              initial={{ opacity: 0.7 }}
+              animate={{ opacity: 1 }}
+              transition={{ type: 'tween', duration: options.followSpeed ? 0.3 / options.followSpeed : 0.3, ease: 'circOut' }}
+              style={{
+                width: '85%',
+                textAlign: 'center',
+                lineHeight: options.textLineHeight,
+                letterSpacing: options.textLetterSpacing,
+                fontFamily: options.textFontFamily,
+                fontSize: options.textFontSize ? options.textFontSize : '12px',
+                color: options.textColor ? options.textColor : 'white',
+              }}
+            >
+              {options.text}
+            </motion.p>
           ) : null}
           <AnimatePresence mode="wait">
             {options.backgroundElement ? (
               <motion.div
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  borderRadius: '9999px',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  overflow: 'hidden',
+                }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0.3 }}
                 transition={{ type: 'tween', duration: options.followSpeed ? 0.3 / options.followSpeed : 0.3, ease: 'circOut' }}
