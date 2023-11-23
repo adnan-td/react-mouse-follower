@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react';
-import { AnimatePresence } from 'framer-motion';
-import type { MousePosition, MouseSettings } from '../types/index.js';
+import { MouseSettings, type MousePosition } from '../types/index.js';
 import { FollowerDiv } from './follower_div.js';
+import useMouseStore from '../store/index.js';
+import { AnimatePresence } from 'framer-motion';
 
-export function FollowerInitialiserComponent({ options }: { options: MouseSettings }) {
+const defaultRadius = 12 / 2;
+
+export function FollowerInitialiserComponent() {
   const [isHovering, setIsHovering] = useState<boolean>(false);
-  const [pos, setPos] = useState<MousePosition>({
-    x: 0,
-    y: 0,
-  });
+
+  const options = useMouseStore((store) => store.curSettings);
+  // console.log(options);
 
   useEffect(() => {
     const handleMouseLeave = () => {
@@ -29,12 +31,30 @@ export function FollowerInitialiserComponent({ options }: { options: MouseSettin
     };
   }, []);
 
+  return (
+    <ManagePosition options={!isHovering ? { ...options, scale: 0, customLocation: null, customPosition: null } : options} />
+  );
+}
+
+function ManagePosition({ options }: { options: MouseSettings }) {
+  const [pos, setPos] = useState<MousePosition>({
+    x: 0,
+    y: 0,
+  });
+
   useEffect(() => {
     const mouseMove = (event: any) => {
-      setPos({
-        x: event.clientX - options.radius,
-        y: event.clientY - options.radius,
-      });
+      if (options.radius != null) {
+        setPos({
+          x: event.clientX - options.radius,
+          y: event.clientY - options.radius,
+        });
+      } else {
+        setPos({
+          x: event.clientX - defaultRadius,
+          y: event.clientY - defaultRadius,
+        });
+      }
     };
     window.addEventListener('mousemove', mouseMove);
     return () => {
@@ -44,7 +64,7 @@ export function FollowerInitialiserComponent({ options }: { options: MouseSettin
 
   return (
     <AnimatePresence mode="wait">
-      {isHovering && options.visible !== false ? <FollowerDiv options={options} pos={pos} /> : null}
+      {options.visible !== false ? <FollowerDiv options={options} pos={pos} /> : null}
     </AnimatePresence>
   );
 }

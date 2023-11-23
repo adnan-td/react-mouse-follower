@@ -1,14 +1,15 @@
 import { MousePosition, MouseSettings } from '../types/index.js';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 
 export function FollowerDiv({ pos, options }: { pos: MousePosition; options: MouseSettings }) {
   const calculatePosition = (): MousePosition => {
-    if (options.customLocation != undefined) {
+    if (options.customLocation != null) {
       return { x: options.customLocation.x, y: options.customLocation.y };
-    } else if (options.customPosition != undefined) {
+    } else if (options.customPosition != null) {
       const rect = options.customPosition.current.getBoundingClientRect();
-      const x = rect.left + rect.width / 2 - options.radius;
-      const y = rect.top + rect.height / 2 - options.radius;
+      const radius = options.radius ? options.radius : 12 / 2;
+      const x = rect.left + rect.width / 2 - radius;
+      const y = rect.top + rect.height / 2 - radius;
       return { x, y };
     } else {
       return { x: pos.x, y: pos.y };
@@ -20,22 +21,20 @@ export function FollowerDiv({ pos, options }: { pos: MousePosition; options: Mou
         x: pos.x,
         y: pos.y,
         scale: 0,
+        backgroundColor: options.backgroundColor || 'black',
+        zIndex: options.zIndex || -5,
+        mixBlendMode: options.mixBlendMode || 'initial',
       }}
       animate={{
         x: calculatePosition().x,
         y: calculatePosition().y,
-        scale: options.scale || 1,
+        scale: options.scale != null ? options.scale : 1,
         rotate: options.rotate || 0,
-      }}
-      exit={{
-        x: pos.x,
-        y: pos.y,
-        scale: 0,
+        backgroundColor: options.backgroundColor || 'black',
+        zIndex: options.zIndex || -5,
+        mixBlendMode: options.mixBlendMode || 'initial',
       }}
       style={{
-        backgroundColor: options.backgroundColor || 'black',
-        mixBlendMode: options.mixBlendMode || 'initial',
-        zIndex: options.zIndex || -5,
         position: 'fixed',
         inset: 0,
         pointerEvents: 'none',
@@ -72,21 +71,36 @@ export function FollowerDiv({ pos, options }: { pos: MousePosition; options: Mou
           }}
         >
           {options.text && !options.backgroundElement ? (
-            <p
-              style={{
-                width: '85%',
-                textAlign: 'center',
-                lineHeight: options.textLineHeight,
-                letterSpacing: options.textLetterSpacing,
-                fontFamily: options.textFontFamily,
-                fontSize: options.textFontSize ? options.textFontSize : '12px',
-                color: options.textColor ? options.textColor : 'white',
-              }}
-            >
-              {options.text}
-            </p>
+            <AnimatePresence mode="wait">
+              <motion.p
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0.3 }}
+                transition={{ type: 'tween', duration: options.followSpeed ? 0.3 / options.followSpeed : 0.3, ease: 'circOut' }}
+                style={{
+                  width: '85%',
+                  textAlign: 'center',
+                  lineHeight: options.textLineHeight,
+                  letterSpacing: options.textLetterSpacing,
+                  fontFamily: options.textFontFamily,
+                  fontSize: options.textFontSize ? options.textFontSize : '12px',
+                  color: options.textColor ? options.textColor : 'white',
+                }}
+              >
+                {options.text}
+              </motion.p>
+            </AnimatePresence>
           ) : null}
-          {options.backgroundElement ? options.backgroundElement : null}
+          <AnimatePresence mode="wait">
+            {options.backgroundElement ? (
+              <motion.div
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0.3 }}
+                transition={{ type: 'tween', duration: options.followSpeed ? 0.3 / options.followSpeed : 0.3, ease: 'circOut' }}
+              >
+                {options.backgroundElement}
+              </motion.div>
+            ) : null}
+          </AnimatePresence>
         </div>
       </div>
     </motion.div>

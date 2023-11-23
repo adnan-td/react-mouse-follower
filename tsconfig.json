@@ -3,7 +3,7 @@
     "target": "es6",
     "useDefineForClassFields": true,
     "lib": ["es5", "es2015", "es2016", "dom", "esnext", "es2020"],
-    "module": "ESNext",
+    "module": "NodeNext",
     "moduleResolution": "nodenext",
     "noImplicitAny": true,
     "skipLibCheck": true,
