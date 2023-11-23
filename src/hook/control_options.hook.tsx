@@ -1,13 +1,14 @@
-import { useContext } from 'react';
-import { MousePropertiesContext } from '../context/mouse.context.js';
+import useMouseStore from '../store/index.js';
 
 export function useControlOptions() {
-  const { addLayer, removeLayer, clearStack, logStack, peekStack } = useContext(MousePropertiesContext);
+  const store = useMouseStore((state) => ({
+    addOptionLayer: state.pushLayer,
+    removePreviousLayer: state.popLayer,
+    clearLayers: state.clearLayers,
+  }));
+
   return {
-    addOptionLayer: addLayer,
-    removePreviousLayer: removeLayer,
-    clearLayers: clearStack,
-    logLayers: logStack,
-    topLayer: peekStack,
+    // logLayers: logStack,
+    ...store,
   };
 }

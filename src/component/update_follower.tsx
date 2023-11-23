@@ -1,6 +1,6 @@
 import { CSSProperties, ReactNode, useContext } from 'react';
-import { MousePropertiesContext } from '../context/mouse.context.js';
 import { MouseSettings } from '../types/index.js';
+import useMouseStore from '../store/index.js';
 
 export function UpdateFollower({
   mouseOptions,
@@ -19,7 +19,7 @@ export function UpdateFollower({
   onClick?: () => void;
   children?: ReactNode;
 }) {
-  const { addLayer, removeLayer } = useContext(MousePropertiesContext);
+  const { addLayer, removeLayer } = useMouseStore((state) => ({ addLayer: state.pushLayer, removeLayer: state.popLayer }));
   function handleMouseEnter() {
     addLayer(mouseOptions);
     if (onMouseEnter) {
